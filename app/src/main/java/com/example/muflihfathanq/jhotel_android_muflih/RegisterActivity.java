@@ -1,5 +1,6 @@
 package com.example.muflihfathanq.jhotel_android_muflih;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,32 +37,44 @@ public class RegisterActivity extends AppCompatActivity {
                 final String name = namaInput.getText().toString();
                 final String pass = passInput.getText().toString();
                 final String email = emailInput.getText().toString();
+                System.out.println(name+pass);
                 Response.Listener<String> responseListener = new Response.Listener<String> () {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            System.out.print("try");
                             JSONObject jsonResponse = new JSONObject(response);
+                            System.out.println(response);
                             if (jsonResponse!= null) {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 builder.setMessage("Registration Success")
                                         .create()
                                         .show();
+                                System.out.println("5");
+                                Intent regisInt = new Intent(RegisterActivity.this, LoginActivity.class);
+                                RegisterActivity.this.startActivity(regisInt);
+
                             }
                         }
                         catch (JSONException e) {
+
                             AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                             builder.setMessage("Registration Failed.")
                                     .create()
                                     .show();
+                            System.out.println("6");
                         }
 
 
                     }
                 };
+                System.out.println("abistry");
                 RegisterRequest registerRequest = new RegisterRequest(name, email,pass, responseListener);
                 RequestQueue queue = Volley.newRequestQueue
                         (RegisterActivity.this);
                 queue.add(registerRequest);
+
+
             }
         });
 

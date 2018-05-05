@@ -36,14 +36,16 @@ public class LoginActivity extends AppCompatActivity {
         emailInput = (EditText) findViewById(R.id.EmailRgs);
         passInput = (EditText) findViewById(R.id.PassRgs);
         loginButton = (Button) findViewById(R.id.LoginBtn);
+        System.out.println("0");
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            final String email = emailInput.getText().toString();
-            final String pass = passInput.getText().toString();
-                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                builder.setMessage(email+pass);
+                System.out.println("0.2");
+                final String email = emailInput.getText().toString();
+                final String pass = passInput.getText().toString();
+                System.out.print(email + pass);
                 Response.Listener<String> responseListener = new Response.Listener<String> () {
+
                     @Override
                     public void onResponse(String response) {
 
@@ -57,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
                                 builder.setMessage("Login Success")
                                         .create()
                                         .show();
+                                Intent regisInt = new Intent(LoginActivity.this, MainActivity.class);
+                                LoginActivity.this.startActivity(regisInt);
+
                             }
                         }
                         catch (JSONException e) {
@@ -72,12 +77,15 @@ public class LoginActivity extends AppCompatActivity {
 
                 System.out.println("5");
                 LoginRequest loginRequest = new LoginRequest(email, pass, responseListener);
+                System.out.println(responseListener.toString());
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
+
+
             }
         });
 
-        registerClickable.setOnClickListener(new View.OnClickListener() {
+                registerClickable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent regisInt = new Intent(LoginActivity.this, RegisterActivity.class);
