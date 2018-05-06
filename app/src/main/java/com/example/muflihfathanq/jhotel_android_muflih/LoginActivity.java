@@ -53,13 +53,15 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             if (jsonResponse!= null) {
-
+                                int id = jsonResponse.getInt("id");
                                 System.out.println("3");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setMessage("Login Success")
                                         .create()
                                         .show();
+
                                 Intent regisInt = new Intent(LoginActivity.this, MainActivity.class);
+                                regisInt.putExtra("id_customer",id);
                                 LoginActivity.this.startActivity(regisInt);
 
                             }

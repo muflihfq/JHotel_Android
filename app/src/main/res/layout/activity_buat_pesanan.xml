@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuatPesananActivity">
+
+    <TextView
+        android:id="@+id/staticDurasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginStart="61dp"
+        android:text="Durasi"
+        app:layout_constraintBottom_toTopOf="@+id/staticTotal"
+        app:layout_constraintEnd_toStartOf="@+id/durasi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/staticTarif" />
+
+    <TextView
+        android:id="@+id/staticRoomNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="81dp"
+        android:text="Nomor Kamar"
+        app:layout_constraintBottom_toTopOf="@+id/staticTarif"
+        app:layout_constraintEnd_toStartOf="@+id/room_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/staticTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="298dp"
+        android:layout_marginEnd="146dp"
+        android:layout_marginStart="61dp"
+        android:text="Total"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/total_biaya"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/staticDurasi" />
+
+    <TextView
+        android:id="@+id/staticTarif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginStart="61dp"
+        android:text="Tarif"
+        app:layout_constraintBottom_toTopOf="@+id/staticDurasi"
+        app:layout_constraintEnd_toStartOf="@+id/tarif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/staticRoomNumber" />
+
+    <TextView
+        android:id="@+id/room_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginTop="81dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/tarif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/staticRoomNumber"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tarif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="86dp"
+        android:layout_marginStart="240dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/durasi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/room_number" />
+
+    <TextView
+        android:id="@+id/total_biaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="298dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginTop="27dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/staticTotal"
+        app:layout_constraintTop_toBottomOf="@+id/durasi" />
+
+    <Button
+        android:id="@+id/hitung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="162dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="200dp"
+        android:text="Hitung"
+        app:layout_constraintBottom_toTopOf="@+id/pesan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/staticRoomNumber" />
+
+    <Button
+        android:id="@+id/pesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="149dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginStart="134dp"
+        android:text="Pesan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hitung" />
+
+    <EditText
+        android:id="@+id/durasi"
+        style="@android:style/Widget.EditText"
+        android:layout_width="56dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="jumlah hari"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/total_biaya"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/staticDurasi"
+        app:layout_constraintTop_toBottomOf="@+id/tarif" />
+</android.support.constraint.ConstraintLayout>
