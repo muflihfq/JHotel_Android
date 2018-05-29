@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminActivity">
+
+    <Button
+        android:id="@+id/PesananButton"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="260dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginStart="96dp"
+        android:text="Lihat Pesanan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HotelButton" />
+
+    <Button
+        android:id="@+id/CustomerButton"
+        android:layout_width="189dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="51dp"
+        android:text="Lihat Pelanggan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/HotelButton"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="28dp"
+        android:text="Lihat Hotel"
+        app:layout_constraintBottom_toTopOf="@+id/PesananButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CustomerButton" />
+
+    <Button
+        android:id="@+id/KamarButton"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="174dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="38dp"
+        android:text="Lihat Kamar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PesananButton" />
+</android.support.constraint.ConstraintLayout>

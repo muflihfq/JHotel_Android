@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     EditText passInput;
     TextView registerClickable;
+    TextView loginAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         emailInput = (EditText) findViewById(R.id.EmailRgs);
         passInput = (EditText) findViewById(R.id.PassRgs);
         loginButton = (Button) findViewById(R.id.LoginBtn);
-        System.out.println("0");
+        loginAdmin = (TextView) findViewById(R.id.LoginAdmin);
+
+        //System.out.println("0");
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +94,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent regisInt = new Intent(LoginActivity.this, RegisterActivity.class);
+                LoginActivity.this.startActivity(regisInt);
+            }
+        });
+
+                loginAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent regisInt = new Intent(LoginActivity.this, LoginAdminActivity.class);
                 LoginActivity.this.startActivity(regisInt);
             }
         });

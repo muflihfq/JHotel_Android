@@ -2,6 +2,7 @@ package com.example.muflihfathanq.jhotel_android_muflih;
 
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -47,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         listExpView = (ExpandableListView) findViewById(R.id.lvExp);
         final Button pesanBtn = (Button) findViewById(R.id.psnBtn);
         currentUserid = getIntent().getIntExtra("id_customer",0);
+        System.out.print("\n\n\n\n"+currentUserid+"\n\n\n\n");
         refreshList();
+
         listExpView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 regisInt.putExtra("id_customer",currentUserid);
                 regisInt.putExtra("id_hotel",listHotel.get(0).getID());
                 regisInt.putExtra("room_number",selected.getRoomNumber());
+                regisInt.putExtra("dailyTariff",selected.getDailytariff());
                 MainActivity.this.startActivity(regisInt);
                 return true;
             }

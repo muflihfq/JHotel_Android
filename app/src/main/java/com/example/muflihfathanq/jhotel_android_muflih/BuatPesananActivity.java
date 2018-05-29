@@ -41,6 +41,7 @@ public class BuatPesananActivity extends AppCompatActivity {
         currentUserid = getIntent().getIntExtra("id_customer",0);
         roomNumber = getIntent().getStringExtra("room_number");
         idHotel = getIntent().getIntExtra("id_hotel",0);
+        tariff = getIntent().getDoubleExtra("dailyTariff",0);
         pesanBtn.setVisibility(View.INVISIBLE);
         room_number.setText(roomNumber);
         tarif.setText(String.valueOf(tariff));
@@ -59,6 +60,9 @@ public class BuatPesananActivity extends AppCompatActivity {
                 System.out.println(currentUserid);
                 System.out.println(idHotel);
                 System.out.println(roomNumber);
+                System.out.println(ttlBiaya);
+
+
 
                 pesanBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -77,6 +81,9 @@ public class BuatPesananActivity extends AppCompatActivity {
                                                 .create()
                                                 .show();
 
+                                        Intent regisInt = new Intent(BuatPesananActivity.this, MainActivity.class);
+                                        BuatPesananActivity.this.startActivity(regisInt);
+
 
 
                                     }
@@ -88,6 +95,8 @@ public class BuatPesananActivity extends AppCompatActivity {
                                     builder.setMessage("Pesanan Gagal diproses")
                                             .create()
                                             .show();
+                                    hitungBtn.setVisibility(View.VISIBLE);
+                                    pesanBtn.setVisibility(View.INVISIBLE);
                                 }
                             }
                         };

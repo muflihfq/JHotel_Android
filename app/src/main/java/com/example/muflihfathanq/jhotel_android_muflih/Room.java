@@ -6,6 +6,7 @@ public class Room {
     private String statuskamar;
     private double dailytariff;
     private String tipekamar;
+    private Hotel hotel;
 
     public Room(String roomnumber,String statuskamar,double dailytariff,String tipekamar)
     {
@@ -25,6 +26,9 @@ public class Room {
         return statuskamar;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
 
     public String getTipekamar()
     {
@@ -45,6 +49,9 @@ public class Room {
         this.statuskamar =  statuskamar;
     }
 
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 
     public void setTipekamar(String tipekamar)
     {

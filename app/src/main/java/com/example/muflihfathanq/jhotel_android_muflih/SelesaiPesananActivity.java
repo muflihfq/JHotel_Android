@@ -1,6 +1,7 @@
 package com.example.muflihfathanq.jhotel_android_muflih;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 import static com.android.volley.toolbox.Volley.newRequestQueue;
 
@@ -34,33 +36,20 @@ public class SelesaiPesananActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selesai_pesanan);
+
+        final Handler handler = new Handler();
         final Button batalBtn = (Button) findViewById(R.id.btlBtn);
         final Button konfirmBtn = (Button) findViewById(R.id.krmBtn);
-         idPesanan = (TextView) findViewById(R.id.id);
-         biaya = (TextView) findViewById(R.id.biaya);
+
+        idPesanan = (TextView) findViewById(R.id.id);
+        biaya = (TextView) findViewById(R.id.biaya);
         jumlahHari = (TextView) findViewById(R.id.hari);
         tglPesan = (TextView) findViewById(R.id.tanggal);
-        //int currentUserid = getIntent().getIntExtra("id_customer",0);
 
         idCust = getIntent().getStringExtra("id_customer");
-        //System.out.println(currentUserid);
         System.out.println(idCust);
-        batalBtn.setVisibility(View.INVISIBLE);
-        konfirmBtn.setVisibility(View.INVISIBLE);
-        idPesanan.setVisibility(View.INVISIBLE);
-        biaya.setVisibility(View.INVISIBLE);
-        jumlahHari.setVisibility(View.INVISIBLE);
-        tglPesan.setVisibility(View.INVISIBLE);
         fetchPesanan(idCust);
 
-        batalBtn.setVisibility(View.VISIBLE);
-        konfirmBtn.setVisibility(View.VISIBLE);
-        idPesanan.setVisibility(View.INVISIBLE);
-        biaya.setVisibility(View.INVISIBLE);
-
-        jumlahHari.setVisibility(View.INVISIBLE);
-
-        tglPesan.setVisibility(View.INVISIBLE);
         batalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +64,8 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                                 builder.setMessage("Pesanan Berhasil Dibatalkan")
                                         .create()
                                         .show();
+                                Intent regisInt = new Intent(SelesaiPesananActivity.this, MainActivity.class);
+                                SelesaiPesananActivity.this.startActivity(regisInt);
 
 
                             }
@@ -111,6 +102,8 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                                 builder.setMessage("Pesanan Berhasil Diselesaikan")
                                         .create()
                                         .show();
+                                Intent regisInt = new Intent(SelesaiPesananActivity.this, MainActivity.class);
+                                SelesaiPesananActivity.this.startActivity(regisInt);
 
 
                             }
@@ -142,14 +135,33 @@ public class SelesaiPesananActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 try
                 {
-                    JSONArray pesananArray = new JSONArray(response);
-                    for(int i = 0; i < pesananArray.length();i++)
-                    {
-                        JSONObject psn = pesananArray.getJSONObject(i);
-                        JSONObject cust = pesananArray.getJSONObject(i).getJSONObject("pelanggan");
-                        int idcustomer = cust.getInt("id");
-                        if(id_customer.equals(String.valueOf(idcustomer))) {
-                            id_pesanan = psn.getInt("id");
+
+                    JSONObject psn = new JSONObject(response);
+                    id_pesanan = psn.getInt("id");
+                    biaya_pesanan = psn.getInt("biaya");
+                    hari_pesanan = psn.getInt("jumlahHari");
+                    tgl_pesanan = psn.getString("tanggalPesan");
+                    System.out.println("id_customer = " +id_customer);
+                    System.out.println("id_pesanan = "+id_pesanan);
+                    System.out.println("biaya_pesanan = "+biaya_pesanan);
+                    System.out.println("hari_pesanan = " +hari_pesanan);
+                    System.out.println("tgl_pesanan = " +tgl_pesanan);
+                    idPesanan.setText(String.valueOf(id_pesanan));
+                    biaya.setText(String.valueOf(biaya_pesanan));
+                    jumlahHari.setText(String.valueOf(hari_pesanan));
+                    tglPesan.setText(tgl_pesanan);
+
+
+
+                    /*JSONArray pesananArray = new JSONArray(response);
+
+                    //for(int i = 0; i < pesananArray.length();i++)
+                   // {
+                        JSONObject psn = pesananArray.getJSONObject(0);
+                    //    JSONObject cust = pesananArray.getJSONObject(i).getJSONObject("pelanggan");
+                      //  int idcustomer = cust.getInt("id");
+                        //if(id_customer.equals(String.valueOf(idcustomer))) {
+                          /*  id_pesanan = psn.getInt("id");
                             idPesanan.setText(id_pesanan);
 
                             biaya_pesanan = psn.getInt("biaya");
@@ -157,12 +169,12 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                             hari_pesanan = psn.getInt("jumlahHari");
                             jumlahHari.setText(hari_pesanan);
                             tgl_pesanan = psn.getString("tanggalPesan");
-                            tglPesan.setText(tgl_pesanan);
+                            tglPesan.setText(tgl_pesanan);*/
 
 
-                            break;
-                        }
-                    }
+                   //         break;
+                     //   }
+                   // }
                 }
                 catch (JSONException e)
                 {

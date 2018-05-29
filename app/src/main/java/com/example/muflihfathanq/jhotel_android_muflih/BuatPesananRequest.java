@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BuatPesananRequest extends StringRequest {
-    private static final String Regis_URL = "http://10.0.2.2:8080/bookpesanan";
+    private static final String Regis_URL = "http://192.168.1.107:8080/bookpesanan";
     private Map<String,String> params;
     //private Map<String,Integer> paramsInt;
 

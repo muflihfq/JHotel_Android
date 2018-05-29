@@ -72,4 +72,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginBtn"
         tools:text="Register here!" />
+
+    <TextView
+        android:id="@+id/LoginAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="114dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="16dp"
+        android:text="Login as Admin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Register" />
 </android.support.constraint.ConstraintLayout>
